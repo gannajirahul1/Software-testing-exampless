@@ -1,0 +1,41 @@
+package Actions;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class dragAndDrop {
+
+	public static void main(String[] args) throws InterruptedException {
+		// drag and dropping static images
+		ChromeDriver driver=new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+		driver.get("https://demo.automationtesting.in/Register.html");
+		driver.manage().window().maximize();
+		
+		//dropdown elements
+		WebElement intera=driver.findElement(By.xpath("//a[normalize-space()='Interactions']"));
+		WebElement DD=driver.findElement(By.xpath("//a[normalize-space()='Drag and Drop']"));
+		WebElement sta=driver.findElement(By.xpath("//a[normalize-space()='Static']"));
+		
+		//drag and drop elements
+		WebElement dropArea=driver.findElement(By.xpath("//div[@id='droparea']"));
+		WebElement angul=driver.findElement(By.xpath("//img[@id='angular']"));
+		
+		
+		Actions act1=new Actions(driver);
+	
+		act1.moveToElement(intera).moveToElement(DD).moveToElement(sta).build().perform();
+
+		//drag and drop
+     	act1.dragAndDrop(angul, dropArea).build().perform();
+		
+		Thread.sleep(2000);
+		driver.quit();
+
+	}
+
+}

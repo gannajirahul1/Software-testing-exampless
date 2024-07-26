@@ -1,0 +1,42 @@
+package Actions;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class KeyBoardActions {
+
+	public static void main(String[] args) throws InterruptedException {
+		// Using action we can click enter,tab,esc,ctrl...etc
+		ChromeDriver driver=new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.get("https://text-compare.com/");
+		driver.manage().window().maximize();
+		driver.findElement(By.xpath("//textarea[@id='inputText1']")).sendKeys("rahul hi welcome to java");
+		
+		Actions act=new Actions(driver);
+		/*
+		//entering some text in box1 and pasting in box2
+		//selecting all the text ctrl+A
+		act.keyDown(Keys.CONTROL).sendKeys("A").keyUp(Keys.CONTROL).perform();
+		//copy the text
+		act.keyDown(Keys.CONTROL).sendKeys("C").keyUp(Keys.CONTROL).perform();
+		//pressing th tab button
+		act.keyDown(Keys.TAB).keyUp(Keys.TAB).perform();
+		//paste the text in second text box
+		act.keyDown(Keys.CONTROL).sendKeys("V").keyUp(Keys.CONTROL).perform();
+		*/
+		
+		//performing ctrl+shift+A -->searching tabs
+		act.keyDown(Keys.CONTROL).keyDown(Keys.SHIFT).sendKeys("A").keyUp(Keys.SHIFT).keyUp(Keys.CONTROL).perform();
+		
+		
+		Thread.sleep(2000);
+		driver.quit();
+	}
+
+}

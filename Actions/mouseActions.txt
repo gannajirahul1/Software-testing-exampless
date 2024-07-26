@@ -1,0 +1,123 @@
+package Actions;
+
+import java.awt.Desktop.Action;
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class MouseActions {
+
+	public static void main(String[] args) throws InterruptedException {
+		/* Haandling Mouse actions
+		 * MouseHover-->moveToElement(element)
+		 * RightClick-->ContextClick(element)
+		 * Double click-->doubleClick(element)
+		 * drag and drop-->dragAndDrop(source,target)
+		 *Actions:predefined classes provided by selenium
+		*/
+		ChromeDriver driver=new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+	/*  driver.get("https://demo.automationtesting.in/Register.html");
+		driver.manage().window().maximize();
+		WebElement switchto=driver.findElement(By.xpath("//a[normalize-space()='SwitchTo']"));
+		WebElement alerts=driver.findElement(By.xpath("//a[normalize-space()='Alerts']"));
+		WebElement windows=driver.findElement(By.xpath("//a[normalize-space()='Windows']"));
+		WebElement frames=driver.findElement(By.xpath("//a[normalize-space()='Frames']"));
+		
+		Actions act=new Actions(driver);
+		//mouseHover
+		//act.moveToElement(switchto).moveToElement(alerts).moveToElement(windows).moveToElement(frames).build().perform();
+		//without writng build
+		//act.moveToElement(switchto).moveToElement(alerts).moveToElement(windows).moveToElement(frames).perform();
+		//performing click operation
+		//act.moveToElement(switchto).moveToElement(alerts).moveToElement(windows).moveToElement(frames).click().build().perform();
+		//act.moveToElement(switchto).moveToElement(alerts).click().perform();
+		//act.moveToElement(switchto).moveToElement(windows).click().perform();
+	*/
+		/*If you cant write build and perform you cant see how it works
+		 * build()-->it is just create an action
+		 * perform()-->it will performs action
+		*/
+		//performing RightClick
+		/*
+		driver.get("https://swisnl.github.io/jQuery-contextMenu/demo.html");
+		driver.manage().window().maximize();
+		WebElement btn=driver.findElement(By.xpath("//span[@class='context-menu-one btn btn-neutral']"));
+		Actions act=new Actions(driver);
+		//Rightclick action
+		act.contextClick(btn).build().perform();
+		Thread.sleep(2000);
+		WebElement edit=driver.findElement(By.xpath("//span[normalize-space()='Edit']"));
+		WebElement copy=driver.findElement(By.xpath("//span[normalize-space()='Copy']"));
+		WebElement cut=driver.findElement(By.xpath("//span[normalize-space()='Cut']"));
+		WebElement paste=driver.findElement(By.xpath("//span[normalize-space()='Paste']"));
+		WebElement delete=driver.findElement(By.xpath("//span[normalize-space()='Delete']"));
+		WebElement quit=driver.findElement(By.xpath("//span[normalize-space()='Quit']"));
+		//clicking copy element
+		//driver.findElement(By.xpath("//span[normalize-space()='Edit']")).click();
+		act.moveToElement(edit).moveToElement(copy).moveToElement(cut).moveToElement(paste).moveToElement(delete).moveToElement(quit).click().build().perform();
+		Thread.sleep(2000);
+		//close alert box
+		driver.switchTo().alert().accept();
+		*/
+		
+		//double click()
+		/*
+		driver.get("https://testautomationpractice.blogspot.com/");
+		driver.manage().window().maximize();
+		//switch to frame
+		//driver.switchTo().frame(0)
+		WebElement box1=driver.findElement(By.xpath("//input[@id='field1']"));
+		WebElement box2=driver.findElement(By.xpath("//input[@id='field2']"));
+		WebElement btn=driver.findElement(By.xpath("//button[normalize-space()='Copy Text']"));
+		box1.clear();
+		Thread.sleep(2000);
+		box1.sendKeys("hi rahul");
+		
+		//dobule click 
+		Actions act=new Actions(driver);
+		act.doubleClick(btn).build().perform();
+		
+		*/
+		
+		
+		//validating the text is copied or not
+		/*
+		String text=box2.getAttribute("value");
+		if(text.equals("hi rahul"))
+		{
+			System.out.println("text copied.....");
+		}
+		else
+		{
+			System.out.println("text is not copied.....");
+		}
+		*/
+		
+		
+		/*
+		//Drag anf drop
+		driver.get("https://testautomationpractice.blogspot.com/");
+		driver.manage().window().maximize();
+		//performinng some actions
+		Actions act=new Actions(driver);
+		
+		WebElement box1=driver.findElement(By.xpath("//div[@id='draggable']"));
+		WebElement box2=driver.findElement(By.xpath("//div[@id='droppable']"));
+		//performing drag an drop
+		act.dragAndDrop(box1, box2).build().perform();
+		
+		
+		*/
+		
+		
+		Thread.sleep(2000);
+		driver.quit();
+		
+	}
+
+}
